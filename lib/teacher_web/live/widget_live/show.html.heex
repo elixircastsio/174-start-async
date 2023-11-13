@@ -1,0 +1,10 @@
+<.back navigate={~p"/widgets"}>Back to widgets</.back>
+
+<.header>
+  <%= @widget.name %> -
+  <.async_result :let={price} assign={@price}>
+    <:loading>Fetching price...</:loading>
+    <:failed :let={_reason}>Price not available</:failed>
+    $<%= price %>
+  </.async_result>
+</.header>
